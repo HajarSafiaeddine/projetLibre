@@ -14,24 +14,18 @@ const Footer = () => {
                     <h5>Support</h5>
                     <span className='bar'></span>
                         <a href='/'>Contact Us</a>
-                        <a href='/'>Chat</a>
-                        <a href='/'>Help Center</a>
-                        <a href='/'>FAQ</a>
+                        <a href='/'>Help</a>
 
                 </div>
                 <div className='col'>
-                    <h5>Developers</h5>
+                    <h5>Tools</h5>
                     <span className='bar'> </span>
-                        <a href='/'>Cloud</a>
-                        <a href='/'>Commerce</a>
-                        <a href='/'>Pro</a>
                         <a href='/'>API</a>
                    
                 </div>
                 <div className='col'>
-                    <h5>Company</h5>
+                    <h5>About us</h5>
                     <span className='bar'> </span>
-                        <a href='/'>About</a>
                         <a href='/'>Information</a>
                         <a href='/'>Legal</a>
                         <a href='/'>Privacy</a>
