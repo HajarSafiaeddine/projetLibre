@@ -8,7 +8,6 @@ const Footer = () => {
         <div className='footer'>
             <div className='container'>
                 <div className='col col-1'>
-               
                 </div>
                 <div className='col'>
                     <h5>Support</h5>
@@ -20,7 +19,7 @@ const Footer = () => {
                 <div className='col'>
                     <h5>Tools</h5>
                     <span className='bar'> </span>
-                        <a href='/'>API</a>
+                        <a href='/'>Products</a>
                    
                 </div>
                 <div className='col'>
@@ -31,7 +30,7 @@ const Footer = () => {
                         <a href='/'>Privacy</a>
                 </div>
                 <div className='col'>
-                    <h5>Social</h5>
+                    <h5>Social Media</h5>
                     <span className='bar'> </span>
                         <a href='/'><FaFacebook className='icon'/></a>
                         <a href='/'><FaTwitter className='icon'/></a>

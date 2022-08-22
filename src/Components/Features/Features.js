@@ -11,12 +11,13 @@ const Features = () => {
 
     useEffect(() => {
         axios.get(url).then((response) => {
+            console.log(response)
             setData(response.data)
         }).catch((error) => {
             console.log(error)
         })
     }, [])
-
+    
     console.log(data)
 
     if (!data) return null
@@ -24,17 +25,13 @@ const Features = () => {
     return (
         <div className='featured'>
             <div className='container'>
-                {/* Left */}
-                <div className='left'>
+                <div>
                     <h2 className='head'>Top current Cryptocurrencies</h2>
                 </div>
-
-                {/* Right */}
-
                 <div className='right'>
                     <div className='card'>
                         <div className='top'>
-                            <img src={data[0].image} alt='' />
+                            <img className='pic' src={data[0].image} alt='' />
                         </div>
                         <div>
                             <h5>{data[0].name}</h5>
@@ -55,7 +52,7 @@ const Features = () => {
                     </div>
                     <div className='card'>
                         <div className='top'>
-                            <img src={data[1].image} alt='' />
+                            <img className='pic' src={data[1].image} alt='' />
                         </div>
                         <div>
                             <h5>{data[1].name}</h5>
@@ -76,7 +73,7 @@ const Features = () => {
                     </div>
                     <div className='card'>
                         <div className='top'>
-                            <img src={data[2].image} alt='' />
+                            <img className='pic' src={data[2].image} alt='' />
                         </div>
                         <div>
                             <h5>{data[2].name}</h5>
@@ -97,7 +94,7 @@ const Features = () => {
                     </div>
                     <div className='card'>
                         <div className='top'>
-                            <img src={data[3].image} alt='' />
+                            <img className='pic' src={data[3].image} alt='' />
                         </div>
                         <div>
                             <h5>{data[3].name}</h5>
@@ -118,7 +115,7 @@ const Features = () => {
                     </div>
                     <div className='card'>
                         <div className='top'>
-                            <img src={data[4].image} alt='' />
+                            <img className='pic' src={data[4].image} alt='' />
                         </div>
                         <div>
                             <h5>{data[4].name}</h5>
@@ -139,7 +136,7 @@ const Features = () => {
                     </div>
                     <div className='card'>
                         <div className='top'>
-                            <img src={data[5].image} alt='' />
+                            <img className='pic' src={data[5].image} alt='' />
                         </div>
                         <div>
                             <h5>{data[5].name}</h5>
@@ -160,7 +157,6 @@ const Features = () => {
                     </div>
                 </div>
             </div>
-
         </div>
     )
 }
