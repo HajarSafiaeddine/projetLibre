@@ -9,9 +9,6 @@ import './table.css'
 const CoinTable = () => {
   const columns = useMemo(() => GROUPED_COLUMNS, [])
   const data = useMemo(() => mydata, [])
-
-
-
   const {
     getTableProps,
     getTableBodyProps,
