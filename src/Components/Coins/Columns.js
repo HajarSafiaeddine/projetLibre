@@ -12,7 +12,7 @@ export const Columns = [
       
     },
     {
-        Header: 'Price',
+        Header: 'Price in $ ',
        
         accessor: 'current_price',
         
@@ -39,17 +39,7 @@ export const Columns = [
     accessor: 'statut',
    
     disableFilters: true,
-    Cell: ({ value }) => {
-      const displayStatut =
-        value == 'Enregistré'
-          ? 'orange'
-          : value == 'Transmis'
-          ? 'green'
-          : value == 'Traité'
-          ? 'green'
-          : 'red';
-        return  <span className={displayStatut}>{value}</span>
-    }
+   
     }  
   ]
   export const GROUPED_COLUMNS = [
@@ -57,6 +47,19 @@ export const Columns = [
     {
       Header: 'General informations',
       columns: [
+        {
+          Header: 'Logo',
+         
+          accessor: 'image',
+          Cell: tableProps => (
+            <img
+              src={tableProps.row.original.image}
+              width={35}
+              alt='logo'
+            />
+          )
+          
+        },
         {
           Header: 'Name',
          
@@ -70,7 +73,7 @@ export const Columns = [
           
         },
         {
-            Header: 'Price',
+            Header: 'Price in $',
            
             accessor: 'current_price',
             
@@ -81,19 +84,19 @@ export const Columns = [
       Header: 'Financial informations',
       columns: [
         {
-          Header: 'Evolution in 24h',
+          Header: 'Evolution in a year',
          
           accessor: 'price_change_percentage_24h',
           
         },
         {
-          Header: 'Volume',
+          Header: 'Volume in $',
           
           accessor: 'total_volume',
          
         },
         {
-          Header: 'Market Cap',
+          Header: 'Market Cap in $',
     
           accessor: 'market_cap'
         },

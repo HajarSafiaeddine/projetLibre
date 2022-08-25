@@ -1,5 +1,5 @@
 import React from 'react'
-import './Coins.css'
+
 import CoinTable from './CoinTable'
 
 
