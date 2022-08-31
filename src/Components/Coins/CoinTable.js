@@ -1,11 +1,13 @@
 import React, { useMemo,useState } from 'react'
-import { useTable, useSortBy, usePagination } from 'react-table'
+import { useTable, useSortBy, usePagination , useGlobalFilter } from 'react-table'
 import mydata from '../../constants/file.json'
 import { GROUPED_COLUMNS } from './Columns'
 import './table.css'
 import './CoinTable.css'
 import { useNavigate } from "react-router-dom";
-import CoinItem from './CoinItem'
+
+
+
 
 
 
@@ -13,7 +15,8 @@ const CoinTable = () => {
   let navigate = useNavigate();
   const columns = useMemo(() => GROUPED_COLUMNS, [])
   const data = useMemo(() => mydata, [])
-  // Define state
+
+
   const [cellValue, setCellValue] = useState('');
   const {
     getTableProps,
@@ -24,6 +27,11 @@ const CoinTable = () => {
     page,
     nextPage,
     previousPage,
+    pageOptions,
+    state,
+    gotoPage,
+    pageCount,
+    setPageSize,
     prepareRow
   } = useTable({
     columns,
@@ -32,31 +40,29 @@ const CoinTable = () => {
   useSortBy,
   usePagination
   )
-   // Function to get cell value
+ 
+  const { pageIndex, pageSize } = state
+
    const getCellValue = (cell) =>{
     setCellValue(cell.value);
+    console.log(cell)
     navigate(`/coin/${cell.row.original.id}`);
   };
 
   
   return (
     <>
-     
-      <table {...getTableProps()}>
+      
+      <table  className='table'{...getTableProps()}>
       <thead>
+     
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map(column => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render('Header')}
-                  <span>
-                    {column.isSorted
-                      ? column.isSortedDesc
-                        ? 'sorting up'
-                        : 'sorting down'
-                      : ''}
-                  </span>
                 </th>
+                
               ))}
             </tr>
           ))}
@@ -67,29 +73,51 @@ const CoinTable = () => {
             return (
               <tr {...row.getRowProps()}>
                 {row.cells.map(cell => {
-                  return  <td
+                  return  <td 
                   onClick={()=> getCellValue(cell)}
                     {...cell.getCellProps()}
-                  >{cell.render('Cell')}</td>
+                  > {cell.render('Cell')}</td>
                 }
                 )}
-                 
               </tr>
             )
           })}
         </tbody>
         
       </table>
-      <div>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+      <div className='bottom'>
+        <button className='btn2' onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {'<<'}
+        </button>{' '}
+        <button className='btn' onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous
         </button>{' '}
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <button className='btn' onClick={() => nextPage()} disabled={!canNextPage}>
           Next
         </button>{' '}
+        <button className='btn2' onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          {'>>'}
+        </button>{' '}
+        <span className='page'>
+          Page{' '}
+          <h6>
+            {pageIndex + 1} / {pageOptions.length}
+          </h6>{' '}
+        </span>
+        <select className='selec' style={{border:"none"}}
+          value={pageSize}
+          onChange={e => setPageSize(Number(e.target.value))}>
+          {[10, 20, 30, 40 ,50].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+               {pageSize} currencies
+            </option>
+          ))}
+        </select>
       </div>
-     
+      
     </>
+   
+    
   )
 }
 export default CoinTable

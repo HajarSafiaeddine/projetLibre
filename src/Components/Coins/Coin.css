@@ -1,12 +1,17 @@
 .coin-container .content {
     max-width: 740px;
     margin: 1rem auto;
-    color: white;
+    color: #03254C;
     padding: .7rem 1rem;
     display: flex;
     flex-direction: column;
-    background-color: #03254C;
-    border-radius: 8px;
+    background-color: rgb(151, 189, 245);
+    border-radius: 4px;
+}
+
+
+.matable{
+    background-color: white;
 }
 
 
@@ -41,7 +46,11 @@ table {
 td, th {
     padding: 8px;
     text-align: center;
+    background-color: rgb(255, 255, 255);
    
+}
+.t{
+    background-color: #03103d;
 }
 
 
@@ -56,13 +65,13 @@ td, th {
 .stats .row {
     display: flex;
     justify-content: space-between;
-    
+    color: #03254C;
     margin: .6rem 0;
     padding-bottom: .5rem;
 }
 
 .stats .row p:first-child {
-    color: #d3d3d3;
+    /* color: #d3d3d3; */
 }
 
 .about h3 {

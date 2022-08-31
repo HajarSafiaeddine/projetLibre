@@ -1,3 +1,4 @@
+
 export const Columns = [
     {
       Header: 'Name',
@@ -42,7 +43,9 @@ export const Columns = [
    
     }  
   ]
+  
   export const GROUPED_COLUMNS = [
+  
     
     {
       Header: 'General informations',
@@ -101,6 +104,16 @@ export const Columns = [
           accessor: 'market_cap'
         },
       ]
-    }
+    },
+    {
+      Header: 'Actions',
+     
+      accessor: '',
+      Cell: tableProps => ( 
+        <button className="btn" onClick={tableProps.onClick}>See more</button>
+      )
+    },
   ]
-  
+
+
+

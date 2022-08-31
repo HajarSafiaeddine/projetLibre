@@ -1,12 +1,9 @@
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
-import DOMPurify from 'dompurify'
-
 import './Coin.css'
 
-const CoinItem = ({coins}) => {
-    console.log(coins);
+const CoinItem = () => {
     const params = useParams()
     const [coin, setCoin] = useState({})
 
@@ -23,6 +20,7 @@ const CoinItem = ({coins}) => {
 
     return (
         <div>
+            
             <div className='coin-container'>
                 <div className='content'>
                     <h1>{coin.name}</h1>
@@ -45,25 +43,25 @@ const CoinItem = ({coins}) => {
                 </div>
 
                 <div className='content'>
-                    <table>
+                    <table className='matable'>
                         <thead>
                             <tr>
-                                <th>1h</th>
-                                <th>24h</th>
-                                <th>7d</th>
-                                <th>14d</th>
-                                <th>30d</th>
-                                <th>1yr</th>
+                                <th className='t'>1h</th>
+                                <th className='t'>24h</th>
+                                <th className='t'>7d</th>
+                                <th className='t'>14d</th>
+                                <th className='t'>30d</th>
+                                <th className='t'>1yr</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{coin.market_data?.price_change_percentage_1h_in_currency ? <p>{coin.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                                <td>{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                                <td>{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_7d_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                                <td>{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_14d_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                                <td>{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_30d_in_currency.usd.toFixed(1)}%</p> : null}</td>
-                                <td>{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}%</p> : null}</td>
+                                <td >{coin.market_data?.price_change_percentage_1h_in_currency ? <p>{coin.market_data.price_change_percentage_1h_in_currency.usd.toFixed(1)}%</p> : null}</td>
+                                <td >{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_24h_in_currency.usd.toFixed(1)}%</p> : null}</td>
+                                <td >{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_7d_in_currency.usd.toFixed(1)}%</p> : null}</td>
+                                <td >{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_14d_in_currency.usd.toFixed(1)}%</p> : null}</td>
+                                <td >{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_30d_in_currency.usd.toFixed(1)}%</p> : null}</td>
+                                <td >{coin.market_data?.price_change_percentage_24h_in_currency ? <p>{coin.market_data.price_change_percentage_1y_in_currency.usd.toFixed(1)}%</p> : null}</td>
 
                             </tr>
                         </tbody>
@@ -95,17 +93,7 @@ const CoinItem = ({coins}) => {
                     </div>
                 </div>
 
-                <div className='content'>
-                    <div className='about'>
-                        <h3>About</h3>
-                        <p dangerouslySetInnerHTML={{
-                            __html: DOMPurify.sanitize(coin.description ? coin.description.fr : ''),
-                        }}>
-    
-                        </p>
-
-                    </div>
-                </div>
+               
 
             </div>
         </div>

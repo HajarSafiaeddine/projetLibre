@@ -1,12 +1,28 @@
-
+.table{
+  margin-top:10vh;
+}
 .bottom{
     display: flex;
     justify-content: center;
 }
-button {
+.page{
+  margin-top:2.5vh;
+  margin-right: 2vh;
+  font-family: var(--poppins);
+  font-size: 16px;
+  white-space: nowrap;
+}
+.selec{
+  background-color: transparent;
+  margin-top:-3vh;
+  font-family: var(--poppins);
+  
+  font-size: 16px;
+}
+.btn {
     margin-top: 2vh;
     margin-bottom: 5vh;
-    margin-left: 5vh;
+    margin-left: 2vh;
     padding: 3px 10px;
     font-family: var(--poppins);
     border: 1px solid #03254C;
@@ -18,7 +34,29 @@ button {
     cursor: pointer;
   }
   
-  button:hover {
+  .btn:hover {
     box-shadow: rgb(0 0 0 / 15%) 0px 8px 24px;
   }
+
+  .btn2{
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    margin-left: 2vh;
+    margin-right: 2vh;
+    padding: 3px 10px;
+    font-family: var(--poppins);
+    border: none;
+    background-color: white ;
+    color:#03254C;
+    /* color: #fff; */
+    border-radius:  4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn2:hover {
+    box-shadow: #03254C 0px 8px 24px;
+  }
+
+
   

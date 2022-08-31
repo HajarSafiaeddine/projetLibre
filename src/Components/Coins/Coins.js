@@ -1,4 +1,5 @@
 import React from 'react'
+import CoinItem from './CoinItem'
 
 import CoinTable from './CoinTable'
 
